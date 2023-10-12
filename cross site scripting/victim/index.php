@@ -4,7 +4,7 @@
     </head>
     <body>
         <h1>Post a comment</h1>
-        <form>
+        <form action="index.php" method="post">
             <label for="comment_title">Comment Title:</label>
             <input type="text" name="comment_title">
             <br/>
@@ -14,14 +14,14 @@
             <input type="submit" value="Post comment">
             </br>
         </form>
-    
+
         <?php
         if (!$_POST['comment_title'])
         {
-            die("nothing posted");
+            die("Nothing posted");
         }
         ?>
-    
+
         <h1>Processing the new post</h1>
         <div id="postarea">
             <p>Here is what was posted</p>
@@ -31,7 +31,7 @@
                 echo "</pre>";
             ?>
         </div>
-    
+
         <h2>New comments</h2>
             <div id="newcomment">
                 <?php
