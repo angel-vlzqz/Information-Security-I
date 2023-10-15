@@ -6,13 +6,11 @@
         <h1>Post a comment</h1>
         <form action="index.php" method="post">
             <label for="comment_title">Comment Title:</label>
-            <input type="text" name="comment_title">
-            <br/>
-            <label for="comment_text">Comment:</label>
-            <textarea name="comment_text" rows="12" cols="70"></textarea>
+            <input type="text" name="comment_title"><br/>
+            <label for="comment_text">Text</label>
+            <textarea name="comment_text" rows="10" cols="100"></textarea>
             </br>
-            <input type="submit" value="Post comment">
-            </br>
+            <input type="submit" name="submit">
         </form>
 
         <?php
@@ -37,8 +35,9 @@
                 <?php
                     // this is the vulnerability, we are not checking
                     // for any threats. we simply accept all text
-                    echo <"<h3>".$_POST['commenttitle']."</h3>";
-                    echo "<p>".$_POST['comment_text']."</p>";
+                    echo $_POST['commenttitle'];
+                    echo "<br>";
+                    echo $_POST['comment_text'];
                 ?>
             </div>
     </body>
