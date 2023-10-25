@@ -5,6 +5,7 @@
     // pull data from test
     echo "<h2>Show all jokes using $keywordFromForm</h2>";
     $sql = "SELECT JokeID, Joke_question, Joke_answer FROM Jokes_table WHERE Joke_answer LIKE '%" . $keywordFromForm . "%'";
+
     $result = $mysqli->query($sql);
     if ($result->num_rows > 0)
     {
