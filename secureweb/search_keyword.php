@@ -1,7 +1,6 @@
 <?php
     include "db_connect.php";
     $keywordFromForm = $_GET["keyword"];
-    echo $keywordFromForm;
     // search database for the word stable
     // pull data from test
     echo "<h2>Show all jokes using $keywordFromForm</h2>";

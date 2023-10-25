@@ -11,8 +11,20 @@
         <form action="search_keyword.php">
             Please enter a keyword to search for:<br>
             <input type="text" name="keyword"><br>
+            <input type="submit" value="Submit">
         </form>
-        <input type="submit" value="Submit">
+
+        <hr>
+
+        <form action="add_joke.php">
+            Enter a joke here:<br>
+            <input type="text" name="newjoke"><br>
+
+            Enter the joke's answer here:<br>
+            <input type="text" name="newanswer"><br>
+            <input type="submit" value="Submit">
+        </form>
+
 
         <?php
         // include "search_keyword.php";
