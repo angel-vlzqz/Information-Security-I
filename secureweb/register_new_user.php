@@ -4,11 +4,10 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     </head>
     <body>
-        <h1>Jokes Page</h1>
+        <h1>Please register</h1>
         <a href="logout.php">Click here to log out</a>
         <a href="login_form.php">Click here to log in</a>
         <a href="register_new_user.php">Click here to register</a>
-
 
         <?php
         include "db_connect.php";
