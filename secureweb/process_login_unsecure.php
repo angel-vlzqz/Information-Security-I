@@ -1,5 +1,7 @@
 <head>
 <?php
+    session_start();
+
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
 
@@ -18,12 +20,21 @@
     {
         $row = $result->fetch_assoc();
         $userid = $row["UserID"];
-        echo "Success! You are logged in as $username<br>";
+        echo "Success! You are logged in as '$username' <br>";
+        $_SESSION["username"] = $username;
+        $_SESSION["userid"] = $userid;
     }
     else 
     {
         echo "<h2>Sorry, there was a problem logging you in</h2>";
         echo "<a href='index.php'>Return to main page</a>";
+        $_SESSION["username"] = "";
+        session_destroy();
         exit();
     }
+
+    echo "SESSION = <br>";
+    echo "<pre>";
+    print_r($_SESSION);
+    echo "</pre>";
 ?>
