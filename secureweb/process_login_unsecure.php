@@ -11,15 +11,15 @@
     // not a good idea
     echo "<h2>Trying to login with username = " . $username . " and password = " . $password . "</h2>";
 
-    $sql = "SELECT Username, Password FROM Users_table WHERE Username = '$username' AND Password = '$password'";
+    $sql = "SELECT UserID, Username, Password FROM Users_table WHERE Username = '$username' AND Password = '$password'";
 
     $result = $mysqli->query($sql);
     if ($result->num_rows > 0)
-        {
-            $row = $result->fetch_assoc();
-            $userid = $row["UserID"];
-            echo "Success! You are logged in as $username<br>";
-        }
+    {
+        $row = $result->fetch_assoc();
+        $userid = $row["UserID"];
+        echo "Success! You are logged in as $username<br>";
+    }
     else 
     {
         echo "<h2>Sorry, there was a problem logging you in</h2>";
