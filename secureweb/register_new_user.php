@@ -5,84 +5,54 @@
     </head>
     <body>
         <h1>Please register</h1>
-        <a href="logout.php">Click here to log out</a>
-        <a href="login_form.php">Click here to log in</a>
-        <a href="register_new_user.php">Click here to register</a>
 
         <?php
         include "db_connect.php";
-        // include "search_all_jokes.php";
         ?>
 
-        <form class="form-horizontal" action="search_keyword.php">
+        <form class="form-horizontal" action="process_new_user.php">
         <fieldset>
 
-        <!-- Form Name -->
-        <legend>Search for a joke</legend>
-
-        <!-- Search input-->
+        <!-- Username entry-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="keyword">Search Input</label>
+            <label class="col-md-4 control-label" for="username">Username</label>
             <div class="col-md-5">
-                <input id="keyword" name="keyword" type="search" placeholder="e.g. chicken" class="form-control input-md" required="">
-                <p class="help-block">enter a word to search for in the joke database</p>
+                <input id="username" name="username" type="text" placeholder="your name" class="form-control input-md" required="">
+                <p class="help-block">Please enter a username</p>
             </div>
         </div>
 
-        <!-- Button --> 
+        <!-- Password entry-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="password1">Password</label>
+            <div class="col-md-5">
+                <input id="password1" name="password1" type="password" placeholder="password" class="form-control input-md" required="">
+                <p class="help-block">Please enter a password</p>
+            </div>
+        </div>
+
+        <!-- Password confirm-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="password2">Password</label>
+            <div class="col-md-5">
+                <input id="password2" name="password2" type="password" placeholder="password" class="form-control input-md" required="">
+                <p class="help-block">Please confirm the password</p>
+            </div>
+        </div>
+
+
+        <!-- Button entry--> 
         <div class="form-group">
             <label class="col-md-4 control-label" for="submit"></label>
             <div class="col-md-4">
-                <button id="submit" name="submit" class="btn btn-primary">Search</button>
+                <button id="submit" name="submit" class="btn btn-primary">Create new user</button>
             </div>
         </div>
 
         </fieldset>
         </form>
 
-        <hr>
-
-
-        <form class="form-horizontal" action="add_joke.php">
-<fieldset>
-
-<!-- Form Name -->
-<legend>Add a joke</legend>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="newjoke">Text Input</label>  
-  <div class="col-md-8">
-  <input id="newjoke" name="newjoke" type="text" placeholder="" class="form-control input-md">
-  <span class="help-block">Enter the first half of your joke</span>  
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="newanswer">The answer for your joke</label>  
-  <div class="col-md-5">
-  <input id="newanswer" name="newanswer" type="text" placeholder="" class="form-control input-md">
-  <span class="help-block">Enter the punchline to your joke</span>  
-  </div>
-</div>
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="submit"></label>
-  <div class="col-md-4">
-    <button id="submit" name="submit" class="btn btn-primary">Add a new joke</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
-
-
-
         <?php
-        // include "search_keyword.php";
-
             $mysqli->close();
         ?>
     </body>
