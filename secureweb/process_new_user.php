@@ -9,7 +9,8 @@
     // check to see if the passwords match
     if ($newPassword1 != $newPassword2)
     {
-        echo "<h2>Sorry, the passwords do not match</h2>";
+        echo "<h2>Sorry, the passwords do not match. Try again</h2>";
+        echo "<a href='index.php'>Return to main page</a>";
         exit();
     }
 
@@ -21,7 +22,8 @@
     // if there is a result, then the username is already taken
     if ($result->num_rows > 0)
     {
-        echo "<h2>Sorry, that username is already taken</h2>";
+        echo "<h2>Sorry, that username is already taken. Try again</h2>";
+        echo "<a href='index.php'>Return to main page</a>";
         exit();
     }
 
@@ -38,4 +40,6 @@
     {
         echo "<h2>Sorry, there was a problem adding new user</h2>";
     }
+
+    echo "<a href='index.php'>Return to main page</a>";
 ?>
