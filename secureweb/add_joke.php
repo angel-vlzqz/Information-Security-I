@@ -1,4 +1,14 @@
 <?php
+    session_start();
+
+    if (!$_SESSION["username"])
+    {
+        echo "<h2>Sorry, you are not logged in. Please login first</h2>";
+        echo "<a href='index.php'>Return to main page</a>";
+        exit();
+    }
+
+
     include "db_connect.php";
     $newJokeQuestion = $_GET["newjoke"];
     $newJokeAnswer = $_GET["newanswer"];
@@ -9,7 +19,7 @@
 
     // pull data from test database
     echo "<h2>Trying to add a new joke: $newJokeQuestion and $newJokeAnswer</h2>";
-    $sql = "INSERT INTO Jokes_table (JokeID, Joke_question, Joke_answer) VALUES (NULL, '$newJokeQuestion', '$newJokeAnswer')";
+    $sql = "INSERT INTO Jokes_table (JokeID, Joke_question, Joke_answer, userId) VALUES (NULL, '$newJokeQuestion', '$newJokeAnswer', S_SESSION[userid])";
     
     // prints out result or error
     $result = $mysqli->query($sql) or die(mysqli_error($mysqli));
