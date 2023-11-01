@@ -13,7 +13,8 @@
                 // output data of each row
                 while ($row = $result->fetch_assoc())
                 {
-                    echo "JokeID: ".$row["JokeID"] ." - Joke Question: ".$row["Joke_question"]." ".$row["Joke_answer"]."<br>";
+                    echo "<h3>" . $row["Joke_question"] . "</h3>";
+                    echo "<div><p>" . $row["Joke_answer"] . " submitted by user #" . $row["userId"] . "</p></div>";
                 }
             }
             else
