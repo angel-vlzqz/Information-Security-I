@@ -15,7 +15,15 @@
 
     $sql = "SELECT UserID, Username, Password FROM Users_table WHERE Username = '$username' AND Password = '$password'";
 
+    echo "SQL = " . $sql . "<br>";
+
     $result = $mysqli->query($sql);
+    
+    echo "<pre>";
+    print_r($result);
+    echo "</pre>";
+
+    
     if ($result->num_rows > 0)
     {
         $row = $result->fetch_assoc();
