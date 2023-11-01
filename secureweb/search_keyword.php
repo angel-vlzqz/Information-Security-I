@@ -28,7 +28,13 @@
     // search database for the word stable
     // pull data from test
     echo "<h1>Show all jokes using $keywordFromForm<br></h1>";
-    $sql = "SELECT JokeID, Joke_question, Joke_answer, userId FROM Jokes_table WHERE Joke_answer LIKE '%" . $keywordFromForm . "%'";
+    $sql = "SELECT JokeID, Joke_question, Joke_answer, Jokes_table.userId, userName
+
+    FROM Jokes_table
+
+    JOIN Users_table ON Users_table.UserID = Jokes_table.userId
+
+    WHERE Joke_question LIKE '%$keywordFromForm%'";
 ?>
 
 <div id="accordion">
@@ -41,7 +47,7 @@
         while ($row = $result->fetch_assoc())
         {
             echo "<h3>" . $row[Joke_question] . "</h3>";
-            echo "<div><p>" . $row[Joke_answer] . " -- Submitted by user #" . $row['userId'] . "</p></div>";
+            echo "<div><p>" . $row[Joke_answer] . " -- Submitted by user: " . $row['userName'] . "</p></div>";
         }
     }
     else
