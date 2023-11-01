@@ -35,6 +35,8 @@
     JOIN Users_table ON Users_table.UserID = Jokes_table.userId
 
     WHERE Joke_question LIKE '%$keywordFromForm%'";
+
+    echo "SQL statement = " . $sql . "<br>";
 ?>
 
 <div id="accordion">
