@@ -46,8 +46,6 @@
         </form>
 
         <?php
-        // include "search_keyword.php";
-
             $mysqli->close();
         ?>
     </body>
