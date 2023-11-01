@@ -20,7 +20,7 @@
 
     // pull data from test database
     echo "<h2>Trying to add a new joke: $newJokeQuestion and $newJokeAnswer</h2>";
-    $sql = "INSERT INTO Jokes_table (JokeID, Joke_question, Joke_answer, userId) VALUES (NULL, '$newJokeQuestion', '$newJokeAnswer', '$_userID')";
+    $sql = "INSERT INTO Jokes_table (JokeID, Joke_question, Joke_answer, userId) VALUES (NULL, '$newJokeQuestion', '$newJokeAnswer', '$userID')";
     
     // prints out result or error
     $result = $mysqli->query($sql) or die(mysqli_error($mysqli));

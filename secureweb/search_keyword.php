@@ -41,7 +41,7 @@
         while ($row = $result->fetch_assoc())
         {
             echo "<h3>" . $row[Joke_question] . "</h3>";
-            echo "<div><p>" . $row[Joke_answer] . " submitted by user #" . $row['userId'] . "</p></div>";
+            echo "<div><p>" . $row[Joke_answer] . " -- Submitted by user #" . $row['userId'] . "</p></div>";
         }
     }
     else

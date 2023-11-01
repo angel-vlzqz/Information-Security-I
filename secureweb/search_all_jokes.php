@@ -5,7 +5,7 @@
             }
 
             // pull data from test
-            $sql = "SELECT JokeID, Joke_question, Joke_answer FROM Jokes_table";
+            $sql = "SELECT JokeID, Joke_question, Joke_answer, userId FROM Jokes_table";
             $result = $mysqli->query($sql);
 
             if ($result->num_rows > 0)
@@ -14,7 +14,7 @@
                 while ($row = $result->fetch_assoc())
                 {
                     echo "<h3>" . $row["Joke_question"] . "</h3>";
-                    echo "<div><p>" . $row["Joke_answer"] . " submitted by user #" . $row["userId"] . "</p></div>";
+                    echo "<div><p>" . $row["Joke_answer"] . " -- Submitted by user #" . $row["userId"] . "</p></div>";
                 }
             }
             else
