@@ -12,6 +12,7 @@
     include "db_connect.php";
     $newJokeQuestion = $_GET["newjoke"];
     $newJokeAnswer = $_GET["newanswer"];
+    $userID = $_SESSION["userid"];
 
     // adds slashes to strings to prevent injections
     $newJokeQuestion = addslashes($newJokeQuestion);
@@ -19,7 +20,7 @@
 
     // pull data from test database
     echo "<h2>Trying to add a new joke: $newJokeQuestion and $newJokeAnswer</h2>";
-    $sql = "INSERT INTO Jokes_table (JokeID, Joke_question, Joke_answer, userId) VALUES (NULL, '$newJokeQuestion', '$newJokeAnswer', S_SESSION[userid])";
+    $sql = "INSERT INTO Jokes_table (JokeID, Joke_question, Joke_answer, userId) VALUES (NULL, '$newJokeQuestion', '$newJokeAnswer', '$_userID')";
     
     // prints out result or error
     $result = $mysqli->query($sql) or die(mysqli_error($mysqli));
