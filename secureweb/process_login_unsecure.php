@@ -7,8 +7,8 @@
 
     include "db_connect.php";
 
-    $username = $_GET["username"];
-    $password = $_GET["password"];
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
     // not a good idea
     echo "<h2>Trying to login with username = " . $username . " and password = " . $password . "</h2>";
