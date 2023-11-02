@@ -13,6 +13,22 @@ if ($newPassword1 != $newPassword2) {
     exit();
 }
 
+// regex to improve security in passwords
+preg_match('/[A-Za-z0-9]+/', $newPassword1, $matches);
+if (sizeof($matches) == 0) {
+    echo "<h2>Sorry, the password must contain at least one letter or number. Try again</h2>";
+    echo "<a href='index.php'>Return to main page</a>";
+    exit();
+}
+
+if (strlen($newPassword1) < 8) {
+    echo "<h2>Sorry, the password must be at least 8 characters long. Try again</h2>";
+    echo "<a href='index.php'>Return to main page</a>";
+    exit();
+}
+
+
+
 // check to see if the user already has an account
 $sql = "SELECT * FROM Users_table WHERE Username = '$newUsername'";
 
