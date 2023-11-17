@@ -1,8 +1,7 @@
+<?php
 function myAutoLoader($class)
 {
-require $class . '.php';
+    require $class . '.php';
 }
-splAutoLoadRegister('myAutoLoader');
 
-asdfasdf
-asdfasdf
+spl_autoload_register('myAutoLoader');
