@@ -7,7 +7,7 @@ class SavingAccountDataService
 
     function __construct($conn)
     {
-        $this->$conn;
+        $this->conn = $conn;
     }
 
     function getBalance()

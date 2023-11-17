@@ -20,7 +20,6 @@ class BankingBusinessService
         $db = new Database();
         $conn = $db->getConnection();
 
-
         $savingsService = new SavingAccountDataService($conn);
         $balance = $savingsService->getBalance();
 
