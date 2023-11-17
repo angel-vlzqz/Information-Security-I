@@ -32,6 +32,25 @@ class CheckAccountDataService
 
     function updateBalance($balance)
     {
+        // get a db connection
+        $db = new Database();
+        $conn = $db->getConnection();
 
+        // run query to get balance
+        $sql = "UPDATE CHECKING SET BALANCE = " . $balance;
+        $result = $conn->query($sql);
+
+        if ($result)
+        {
+            // update successful
+            $conn->close();
+            return 1;
+        }
+        else
+        {
+            // update failed
+            $conn->close();
+            return 0;
+        }
     }
 }
