@@ -3,21 +3,28 @@ require_once 'autoLoader.php';
 
 class CheckAccountDataService
 {
+    private $conn;
+
+    function __construct($conn)
+    {
+        $this->conn = $conn;
+    }
+
     function getBalance()
     {
         // get db connection
-        $db = new Database();
-        $conn = $db->getConnection();
+        // $db = new Database();
+        // $conn = $db->getConnection();
 
         // run query to get balance
         $sql = "SELECT BALANCE FROM CHECKING";
-        $result = $conn->query($sql);
+        $result = $this->conn->query($sql);
 
         // if there is more than 0 rows, return the balance
         if ($result->num_rows == 0)
         {
             // nothing found, return -1
-            $conn->close();
+            // $conn->close();
             return -1;
         }
         else
@@ -25,7 +32,7 @@ class CheckAccountDataService
             // found the balance, return it
             $row = $result->fetch_assoc();
             $balance = $row["BALANCE"];
-            $conn->close();
+            // $conn->close();
             return $balance;
         }
     }
@@ -33,23 +40,23 @@ class CheckAccountDataService
     function updateBalance($balance)
     {
         // get a db connection
-        $db = new Database();
-        $conn = $db->getConnection();
+        // $db = new Database();
+        // $conn = $db->getConnection();
 
         // run query to get balance
         $sql = "UPDATE CHECKING SET BALANCE = " . $balance;
-        $result = $conn->query($sql);
+        $result = $this->conn->query($sql);
 
         if ($result)
         {
             // update successful
-            $conn->close();
+            // $conn->close();
             return 1;
         }
         else
         {
             // update failed
-            $conn->close();
+            // $conn->close();
             return 0;
         }
     }
