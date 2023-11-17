@@ -24,13 +24,16 @@
     echo "</pre>";
 
 
-    if ($result->num_rows > 0) {
+    if ($result->num_rows > 0)
+    {
         $row = $result->fetch_assoc();
         $userid = $row["UserID"];
         echo "Success! You are logged in as '$username' <br>";
         $_SESSION["username"] = $username;
         $_SESSION["userid"] = $userid;
-    } else {
+    }
+    else
+    {
         echo "<h2>Sorry, there was a problem logging you in</h2>";
         echo "<a href='index.php'>Return to main page</a>";
         $_SESSION["username"] = "";

@@ -7,15 +7,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
-        $(function () {
-            $("#accordion").accordion();
-        });
+    $(function() {
+        $("#accordion").accordion();
+    });
     </script>
 
     <style>
-        * {
-            font-family: Arial, Helvetica, sans-serif;
-        }
+    * {
+        font-family: Arial, Helvetica, sans-serif;
+    }
     </style>
 
 
@@ -42,13 +42,17 @@ echo "SQL statement = " . $sql . "<br>";
 
     <?php
     $result = $mysqli->query($sql);
-    if ($result->num_rows > 0) {
+    if ($result->num_rows > 0)
+    {
         // output data of each row
-        while ($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc())
+        {
             echo "<h3>" . $row[Joke_question] . "</h3>";
             echo "<div><p>" . $row[Joke_answer] . " -- Submitted by user: " . $row['userName'] . "</p></div>";
         }
-    } else {
+    }
+    else
+    {
         echo "0 results";
     }
     ?>

@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-if (!$_SESSION["username"]) {
+if (!$_SESSION["username"])
+{
     echo "<h2>Sorry, you are not logged in. Please login first</h2>";
     echo "<a href='index.php'>Return to main page</a>";
     exit();
