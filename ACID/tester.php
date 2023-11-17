@@ -2,13 +2,20 @@
 require_once 'autoLoader.php';
 
 $checking = new checkAccountDataService();
-$balance = $checking->getBalance();
+$saving = new savingAccountDataService();
 
-echo "Initial checking balance = " . $balance . "<br>";
+$checkingBalance = $checking->getBalance();
+$savingBalance = $saving->getBalance();
 
-echo "Add some money<br>";
+echo "Checking Balance: " . $checkingBalance . "<br>";
+echo "Saving Balance: " . $savingBalance . "<br>";
 
-$balance = $checking->updateBalance($balance + 100);
-$balance = $checking->getBalance();
+echo "Take $100 from checking and put it in saving<br>";
+$checking->updateBalance($checkingBalance - 100);
+$saving->updateBalance($savingBalance + 100);
 
-echo "Initial checking balance = " . $balance . "<br>";
+$checkingBalance = $checking->getBalance();
+$savingBalance = $saving->getBalance();
+
+echo "Checking Balance: " . $checkingBalance . "<br>";
+echo "Saving Balance: " . $savingBalance . "<br>";
